@@ -14,6 +14,7 @@ public class ArtistaRest {
 
     ArtistasDAO artistasDAO = new ArtistasDAO();
 
+    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getArtistas() {
@@ -26,6 +27,7 @@ public class ArtistaRest {
         }
     }
 
+    
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -42,6 +44,7 @@ public class ArtistaRest {
         }
     }
 
+    
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     public Response insertArtista(@FormParam("nombre_artista") String nombre, @FormParam("descripcion") String descripcion) {
@@ -75,6 +78,7 @@ public class ArtistaRest {
         }
     }
 
+    
     @DELETE
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)

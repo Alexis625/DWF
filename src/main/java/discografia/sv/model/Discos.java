@@ -4,7 +4,7 @@ public class Discos {
 	
 	
 	private int id_discos;
-	private String nombre_disco;
+	private String nom_disco;
 	private int id_artista;
 	private int num_canciones;
 	private double precio;
@@ -17,11 +17,11 @@ public class Discos {
 	public void setId_discos(int id_discos) {
 		this.id_discos = id_discos;
 	}
-	public String getNombre_disco() {
-		return nombre_disco;
+	public String getNom_disco() {
+		return nom_disco;
 	}
-	public void setNombre_disco(String nombre_disco) {
-		this.nombre_disco = nombre_disco;
+	public void setNom_disco(String nom_disco) {
+		this.nom_disco = nom_disco;
 	}
 	public int getId_artista() {
 		return id_artista;

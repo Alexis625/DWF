@@ -44,10 +44,17 @@ public class DiscosRest {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertDisco(Discos disco) {
+    public Response insertDisco(@FormParam("nom_disco") String nom_disco, @FormParam("id_artista") int id_artista,
+    		@FormParam("num_canciones") int num_canciones,@FormParam("precio") double precio) {
         try {
-            discosDAO.insert(disco);
-            return Response.status(201).entity(disco).build();
+        	Discos discos=new Discos();
+        	discos.setId_artista(id_artista);
+			discos.setNom_disco(nom_disco);
+        	discos.setNum_canciones(num_canciones);
+        	discos.setPrecio(precio);
+        	
+            discosDAO.insert(discos);
+            return Response.status(201).entity(discos).build();
         } catch (SQLException ex) {
             ex.printStackTrace();
             return Response.status(500).entity("Error al insertar disco").build();
@@ -57,9 +64,15 @@ public class DiscosRest {
     @PUT
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateDisco(@PathParam("id") int id, Discos disco) {
+    public Response updateDisco(@PathParam("id") int id, @FormParam("nom_disco") String nom_disco, @FormParam("id_artista") int id_artista,
+    		@FormParam("num_canciones") int num_canciones,@FormParam("precio") double precio) {
         try {
+        	Discos disco=new Discos();
             disco.setId_discos(id);
+            disco.setId_artista(id_artista);
+			disco.setNom_disco(nom_disco);
+        	disco.setNum_canciones(num_canciones);
+        	disco.setPrecio(precio);
             discosDAO.update(disco);
             return Response.status(200).entity(disco).build();
         } catch (SQLException ex) {
